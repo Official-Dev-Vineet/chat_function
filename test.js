@@ -19,5 +19,6 @@ setInterval(() => {
     element.style.borderRadius=Math.floor(Math.random() * 0xff).toString(16)+'%'
     element.style.rotate=Math.random() * 6 + 'deg';
     element.style.filter=`drop-shadow(0 0 20px ${color()})`
+    element.style.rotate=`33deg`
   })
 }, 1000);

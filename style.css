@@ -13,19 +13,45 @@ body {
   width: 100%;
   inset: 0;
   background-color: inherit;
-  display: grid;
-  grid-template-columns: repeat(10,1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
   overflow: hidden;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
 }
 .bg span {
   position: relative;
   display: inline-block;
-  height: 3em;
-  width: 6em;
-  transition: all 200ms;
-  /* background-color: aqua; */
-  box-shadow:0 0 30px var(--color);
-  border:5px solid var(--color);
+  height: 5em;
+  width: 5em;
+  opacity: 0;
+  transition: all 500ms ease;
+  animation: opacity infinite 3s linear alternate;
+}
+.bg span:hover {
+  opacity: 0;
+  scale: 2;
+}
+.bg span:nth-child(odd) {
+  animation-delay: 1s;
+}
+.bg span:nth-child(even) {
+  animation-delay: 2s;
+}
+/* .bg span:nth-child(4n+4){
+  animation-delay: 3s;
+}
+.bg span:nth-child(5n+5){
+  animation-delay: 4s;
+} */
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50px, -50px, 30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(50px,50px,30px);
+  }
 }
